@@ -446,6 +446,74 @@ app.delete('/health-conditions/delete/:id_num', (req, res) => {
   });
 });
 
+// Fetch all doctors from the users table
+app.get('/api/schedules/get', (req, res) => {
+  const query = `SELECT users.id_number, CONCAT(users.firstname, ' ', users.lastname) AS fullname, users.comment, schedules.day, schedules.time_period, schedules.time, schedules.is_red
+   FROM users 
+   JOIN schedules ON users.id_number = schedules.id_number WHERE user_type IN ('2', '3')`;
+  db.query(query, (err, results) => {
+    if (err) return res.status(500).send(err);
+    res.json(results);
+  });
+});
+
+// Update Doctor Schedules
+app.put('/api/schedules/update/:doctorId', async (req, res) => {
+  const { doctorId } = req.params;
+  const { schedules } = req.body;
+
+  try {
+    // Create an array of promises for all database updates
+    const updatePromises = [];
+
+    schedules.forEach(schedule => {
+      // Morning Slots
+      schedule.morning.forEach(timeSlot => {
+        const query = `
+          UPDATE schedules 
+          SET is_red = ? 
+          WHERE id_number = ? AND day = ? AND time_period = 'morning' AND time = ?
+        `;
+        updatePromises.push(
+          new Promise((resolve, reject) => {
+            db.query(query, [timeSlot.isRed, doctorId, schedule.day, timeSlot.time], (err, result) => {
+              if (err) return reject(err);
+              resolve(result);
+            });
+          })
+        );
+      });
+
+      // Afternoon Slots
+      schedule.afternoon.forEach(timeSlot => {
+        const query = `
+          UPDATE schedules 
+          SET is_red = ? 
+          WHERE id_number = ? AND day = ? AND time_period = 'afternoon' AND time = ?
+        `;
+        updatePromises.push(
+          new Promise((resolve, reject) => {
+            db.query(query, [timeSlot.isRed, doctorId, schedule.day, timeSlot.time], (err, result) => {
+              if (err) return reject(err);
+              resolve(result);
+            });
+          })
+        );
+      });
+    });
+
+    // Wait for all promises to complete
+    await Promise.all(updatePromises);
+
+    // Send success response
+    res.status(200).json({ message: 'Schedules updated successfully!' });
+  } catch (error) {
+    console.error('Error updating schedules:', error);
+    res.status(500).json({ error: 'Failed to update schedules' });
+  }
+});
+
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });

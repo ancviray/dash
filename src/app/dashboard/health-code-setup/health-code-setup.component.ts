@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HealthConditionsService } from '../../health-conditions.service';
+import { HealthConditionsService } from '../../services/health-conditions.service';
 import * as bootstrap from 'bootstrap';
 import { Category } from '../../models/category.model';
 

@@ -198,3 +198,10 @@ button:active, button:focus {
   align-items: center;
   justify-content: flex-start;
 }
+
+
+/* modal button */
+.custom-close-btn {
+  background-color: #dc3545;
+  color: white;
+}
