@@ -1,0 +1,151 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+.sidebar {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  padding-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #f9f9f9; /* Updated background color */
+  transition: all 0.3s ease-in-out; 
+}
+
+.sidebar-header i {
+  font-size: 60px;
+  color: #13322b;
+  padding: 20px; /* Add padding around the icon */
+  margin-top: 20px; /* Adjust position further down */
+  display: block; /* Makes sure the icon is block-level */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidebar-header {
+  padding: 15px 0;
+  text-align: center;
+}
+
+.nav {
+  padding-top: 50px; /* Adds space at the top of the entire navigation list */
+}
+
+.nav-link {
+  font-size: 16px;
+  color: #333;
+  padding: 15px 20px; /* Increased vertical padding to bring text down */
+  margin-bottom: 8px;
+  position: relative; /* For positioning the line */
+  transition: all 0.3s ease-in-out; 
+}
+
+/* Active link */
+.nav-link.active {
+  background-color: rgba(0, 123, 255, 0.1);
+  color: #13322b;
+  font-weight: bold;
+  border-left: 5px solid #13322b;
+  transition: all 0.3s ease-in-out; 
+}
+
+.nav-link:hover {
+  .nav-link:hover {
+    font-weight: bold;  /* Bold text on hover */
+    background-color: rgba(0, 123, 255, 0.1); /* Light background on hover */
+    color: #13322b; /* Change text color on hover */
+    transition: all 0.3s ease-in-out; 
+  }
+}
+
+
+
+.shadow {
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Add line to the left on hover */
+.nav-link::after {
+  content: ''; /* Empty content to create the pseudo-element */
+  position: absolute;
+  right: 0; /* Position the line on the right */
+  top: 0;
+  height: 100%;
+  width: 5px; /* Thickness of the line */
+  background-color: #13322b; /* Line color */
+  transform: scaleY(0); /* Initially hidden */
+  transition: all 0.3s ease-in-out; 
+}
+
+.nav-link:hover::after {
+  transform: scaleY(1); /* Make the line appear on hover */
+}
+
+/* Transparent box effect */
+.nav-link:hover {
+  background-color: rgba(0, 123, 255, 0.2); /* Transparent box on hover */
+}
+
+/* Optional: Add a border on the side when hovered */
+.nav-link:hover {
+  border-left: 5px solid #13322b; /* Side line when hovering */
+  padding-left: 15px; /* Add some space after the border */
+}
+
+.user-greeting {
+  color: #fff;
+  font-size: 18px;
+  padding: 8px;
+  margin-top: -50px;
+  border-radius: 20px;
+  background-color: #13322b;
+  position: relative;
+  top: 50; /* Align to the top */
+  text-align: center; /* Center text horizontally */
+  height: 50px; /* Fixed height for vertical centering */
+}
+
+
+/* Sign Out Button */
+.sidebar-footer {
+  position: absolute;
+  bottom: 20px; /* Position the button at the bottom */
+  width: 80%;
+  text-align: center;
+}
+
+#signOutBtn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 25px;
+  color: #ffffff;
+}
+
+#signOutBtn i {
+  margin-right: 15px;
+
+}
+
+
+/* Main Content Styling */
+/*.main-header {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.main-header i {
+  color: #007bff;
+  margin-right: 10px;
+}
+
+.main-header h1 {
+  margin: 0;
+}*/
+
+

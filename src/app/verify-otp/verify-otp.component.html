@@ -1,0 +1,122 @@
+<app-header></app-header>
+
+<div class="hero-image">
+  <div class="container">
+    <div class="card shadow-lg position-relative">
+
+      <!-- Back Button Icon on the Upper Left -->
+      <div class="back-button">
+        <a href="#" class="text-dark">
+          <div class="back-circle">
+            <i class="bi bi-arrow-left"></i>
+          </div>
+          <span class="back-text">Back</span> <!-- Adding "Back" text -->
+        </a>
+      </div>
+
+      <h3 class="text-center mb-4"></h3>
+      <p class="text-center text-muted">
+        We’ve sent an OTP to <strong>{{ email }}</strong>, please enter the code below.
+      </p>
+
+      <!-- OTP Form -->
+      <form #otpForm="ngForm" (ngSubmit)="onSubmit()">
+        
+        <!-- OTP Input with Separate Boxes for Each Digit -->
+        <div class="form-group">
+          <label for="otp"></label>
+          <div class="input-group justify-content-center">
+            <input
+              type="text"
+              id="otp1"
+              name="otp1"
+              maxlength="1"
+              class="form-control otp-box"
+              placeholder="0"
+              required
+              [(ngModel)]="otp[0]"
+              #otpInput1="ngModel" />
+            <input
+              type="text"
+              id="otp2"
+              name="otp2"
+              maxlength="1"
+              class="form-control otp-box"
+              placeholder="0"
+              required
+              [(ngModel)]="otp[1]"
+              #otpInput2="ngModel" />
+            <input
+              type="text"
+              id="otp3"
+              name="otp3"
+              maxlength="1"
+              class="form-control otp-box"
+              placeholder="0"
+              required
+              [(ngModel)]="otp[2]"
+              #otpInput3="ngModel" />
+            <input
+              type="text"
+              id="otp4"
+              name="otp4"
+              maxlength="1"
+              class="form-control otp-box"
+              placeholder="0"
+              required
+              [(ngModel)]="otp[3]"
+              #otpInput4="ngModel" />
+            <input
+              type="text"
+              id="otp5"
+              name="otp5"
+              maxlength="1"
+              class="form-control otp-box"
+              placeholder="0"
+              required
+              [(ngModel)]="otp[4]"
+              #otpInput5="ngModel" />
+            <input
+              type="text"
+              id="otp6"
+              name="otp6"
+              maxlength="1"
+              class="form-control otp-box"
+              placeholder="0"
+              required
+              [(ngModel)]="otp[5]"
+              #otpInput6="ngModel" />
+          </div>
+          <div *ngIf="otpInput1.invalid && otpInput1.touched" class="text-danger">
+            OTP is required and must be 6 digits.
+          </div>
+        </div>
+
+        <!-- Resend OTP Countdown -->
+        <div class="text-center mt-2">
+          <button
+            class="btn btn-link text-muted"
+            [disabled]="resendDisabled"
+            (click)="resendOTP()"
+            style="font-size: 0.9em;">
+            Resend OTP
+          </button>
+          <span *ngIf="resendDisabled" class="text-muted">in {{ countdown }} seconds</span>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="btn btn-primary btn-block mt-3"
+          [disabled]="isOtpInvalid() || resendDisabled">
+          Verify
+        </button>
+      </form>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="text-danger text-center mt-2">
+        {{ errorMessage }}
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+/* Container and Card Styles */
+.hero-image {
+    background-image: url("https://i.ibb.co/S7MjgYN/dlsaucampus.png");
+    background-color: #030303; /* fallback color */
+    background-position: center,center;
+    background-size: cover;
+    height: 100vh; /* Make the hero image stretch the entire page */
+  }
+  /* Container and Card Styles */
+  .container {
+    height: 100vh;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #top-icon {
+    font-size: 10px;         /* Adjust size as needed */
+    color: #13322b;          /* Icon color */
+    position: absolute;      /* Positioned relative to .card */
+    top: -40px;              /* Adjust vertical position */
+    left: 50%;               /* Center horizontally */
+    transform: translateX(-50%); /* Ensure perfect centering */
+    z-index: 10;             /* Ensure it stays above other elements */
+  }
+  
+  
+  .card {
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  /* Input Fields */
+  .form-control {
+    border-radius: 10px;
+    padding-left: 40px; /* Space for icon */
+  }
+  
+  /* Submit Button */
+  .btn-primary {
+    background-color: #13322b;
+    border-color: #13322b;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    width: 100%; /* Stretch button to full width */
+  }
+  
+  .btn-primary:hover {
+    background-color: #0c1d16;
+    border-color: #0c1d16;
+  }
+  
+  /* Text Links */
+  .text-muted {
+    font-size: 0.9em;
+    color: #6c757d;
+  }
+  
+  .text-muted:hover {
+    color: #007bff;
+  }
+  
+  .text-center a {
+    text-decoration: none;
+  }
+  
+  /* Icon inside input */
+  .input-group-text {
+    background-color: transparent;
+    border: none;
+    padding: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .input-group .bi {
+    font-size: 1.2rem;
+    color: #13322b;
+  }
+
+  a {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  

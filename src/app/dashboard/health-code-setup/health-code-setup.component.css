@@ -1,0 +1,306 @@
+
+/* Import Poppins font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+/* Apply Poppins font to body */
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Style the container */
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    margin-left: 320px;
+    transition: all 0.3s ease-in-out; 
+  }
+  
+  
+/* Center the content */
+.text-center {
+    text-align: center;
+  }
+
+  
+/* Table styling */
+.table {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    border: 1px solid #000000; /* Border around the entire table */
+}
+
+.table th, .table td {
+    padding: 10px;
+    text-align: center; /* Center text in cells */
+    border: 1px solid #050505; /* Add border to table cells */
+}
+
+.table th {
+    background-color: #13322b; /* Change header background color */
+    color: #ffffff; /* White text for the header */
+    border: 1px solid #000000; /* Border around the entire table */
+}
+
+  /* Button styles */
+  .btn {
+    border-radius: 5px;
+    padding: 8px 15px;
+  }
+  
+  .btn-warning i, .btn-danger i {
+    color: #fff;
+  }
+  
+  .btn-warning:hover, .btn-danger:hover {
+    opacity: 0.8;
+  }
+  
+  /* Add More button */
+  #addCategoryBtn {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+  
+  /* Table row for dynamic users */
+  #categoryTable tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  #categoryTable tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  .edit-icon {
+    color: #181716; /* Orange for Edit icon */
+    font-size: 20px; /* Set specific icon size for Edit icon */
+  }
+  
+  .delete-icon {
+    color: #9c231a; /* Red for Delete icon */
+    font-size: 20px; /* Set specific icon size for Edit icon */
+  }
+  
+  
+/* Responsive Styling */
+
+/* Phone (up to 576px) */
+@media (max-width: 576px) {
+    /* Container adjustments */
+    .container {
+      margin-left: 0; /* Remove margin to allow full width */
+      padding: 10px;
+    }
+  
+    /* Table adjustments */
+    .table {
+      font-size: 14px;
+    }
+  
+    .table th, .table td {
+      padding: 8px;
+    }
+  
+    /* Button adjustments */
+    .btn {
+      padding: 6px 12px;
+    }
+  
+    #addCategoryBtn {
+      width: 100%; /* Full width button on small screens */
+    }
+  
+    /* Icon size adjustment */
+    .edit-icon, .delete-icon {
+      font-size: 20px; /* Smaller icon size */
+    }
+  }
+  
+  /* Tablet (576px to 768px) */
+  @media (min-width: 576px) and (max-width: 768px) {
+    /* Container adjustments */
+    .container {
+      margin-left: 250px; /* Reduce margin for tablet size */
+      padding: 15px;
+    }
+  
+    /* Table adjustments */
+    .table {
+      font-size: 15px;
+    }
+  
+    .table th, .table td {
+      padding: 9px;
+    }
+  
+    /* Button adjustments */
+    .btn {
+      padding: 7px 14px;
+    }
+  
+    #addCategoryBtn {
+      width: 100%; /* Full width button on tablets */
+    }
+  
+    /* Icon size adjustment */
+    .edit-icon, .delete-icon {
+      font-size: 30px; /* Medium icon size */
+    }
+  }
+  
+  #addCategoryBtn {
+    float: right;
+    background-color: white;
+    color: #13322b;
+    border: 1px solid #13322b; /* Optional: Adds a border with the same color */
+}
+/* modal text box*/
+.custom-width {
+    width: 30%;
+  }
+
+  .custom-width {
+    width: 30%;
+  }
+  
+/* modal button */
+  .custom-close-btn {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .custom-save-btn {
+    background-color: #13322b;
+    color: white;
+  }
+  
+
+  /* Add smooth transition to the dropdown */
+.form-select {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .form-select:focus {
+    background-color: #e9f7fe;  /* Light blue when focused */
+    transform: scale(1.05); /* Slight scale effect on focus */
+  }
+  
+  /* Option animation */
+  .form-select option {
+    transition: background-color 0.3s ease;
+  }
+  
+  .form-select option:hover {
+    background-color: #d1ecf1; /* Change background color on hover */
+  }
+  
+  /* Animation for smooth dropdown expansion */
+@keyframes dropdownAnimation {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .form-select {
+    animation: dropdownAnimation 0.3s ease-out;
+  }
+  
+  .form-select:focus {
+    background-color: #e9f7fe;
+    transform: scale(1.05);
+  }
+
+  /* Add border to input fields */
+.form-control {
+    border: 1px solid #000000; /* Set the color of the border */
+    border-radius: 5px; /* Optional: round the corners */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+  }
+  
+  /* Change border color on focus */
+  .form-control:focus {
+    border-color: #000000; /* Darker blue when focused */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6); /* Optional: add shadow on focus */
+  }
+
+  /* Add border to input fields and select dropdown */
+.form-control, .form-select {
+    border: 1px solid #000000; /* Set the color of the border */
+    border-radius: 5px; /* Optional: round the corners */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+  }
+  
+  /* Change border color on focus for input fields and select dropdown */
+  .form-control:focus, .form-select:focus {
+    border-color: #000000; /* Darker blue when focused */
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.6); /* Optional: add shadow on focus */
+  }
+  
+  
+  /* Border and shadow for the entire modal */
+.modal-content {
+    border: 1px solid #141414; /* Set the color and thickness of the border */
+    border-radius: 10px; /* Optional: round the corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+  }
+  
+  /* Optional: Change border color on modal focus */
+  .modal-content:focus {
+    border-color: #000000; /* Darker border color on focus */
+    box-shadow: 0 4px 15px rgba(0, 86, 179, 0.3); /* Darker shadow on focus */
+  }
+
+
+  /* Ensure the icon is correctly positioned inside the input */
+.position-relative {
+    position: relative;
+  }
+  
+  #passwordToggle {
+    position: absolute;
+    right: 50px; /* Position the icon inside the text box */
+    top: 30%;    /* Vertically center the icon */
+    transform: translateY(-50%); /* Center the icon */
+    cursor: pointer;
+  }
+
+  /* Customizing invalid form control */
+.is-invalid {
+    border-color: #dc3545; /* Red border */
+  }
+  
+  .invalid-feedback {
+    color: #dc3545; /* Red text for error messages */
+  }
+  
+/* Color Box */
+.color-box {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+
+input[type="color"] {
+  cursor: pointer;
+  position: relative;
+  width: 100px; /* Adjust the width of the color picker as needed */
+  height: 40px; /* Optional: Adjust height for a better look */
+  margin-top: 5px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column; /* Stack the label and input vertically */
+}
+
+.form-label {
+  margin-bottom: 5px; /* Adds spacing between the label and the color picker */
+}

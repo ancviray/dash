@@ -1,0 +1,233 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+
+#top-icon {
+  font-size: 10px;         /* Adjust size as needed */
+  color: #13322b;          /* Icon color */
+  position: absolute;      /* Positioned relative to .card */
+  top: -40px;              /* Adjust vertical position */
+  left: 50%;               /* Center horizontally */
+  transform: translateX(-50%); /* Ensure perfect centering */
+  z-index: 10;             /* Ensure it stays above other elements */
+}
+
+
+.hero-image {
+  background-image: url("https://i.ibb.co/S7MjgYN/dlsaucampus.png");
+  background-color: #030303; /* fallback color */
+  background-position: center,center;
+  background-size: cover;
+  height: 100vh; /* Make the hero image stretch the entire page */
+}
+/* Container and Card Styles */
+.container {
+  height: 100vh;
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease-in-out; 
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  padding: 30px; /* Adjusted padding to make the card look more balanced */
+  width: 100%;
+  max-width: 400px; /* Set a max width for the card */
+}
+
+/* Form Group and Label */
+.form-group label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+
+/* Position the eye icon inside the input on the right */
+.input-group-append .input-group-text {
+  cursor: pointer;
+  right: 10px;
+  top: 5px;
+  position: absolute;
+}
+
+/* Icon color inside the input */
+.input-group .bi {
+  font-size: 1.2rem;
+  color: #13322b; /* Blue icon color */
+}
+
+/* Input Fields */
+.form-control {
+  border-radius: 10px;
+  padding-left: 40px;  /* Space for icon */
+  padding-right: 40px; /* Add padding on the right for password visibility icon */
+  width: 100%; /* Ensure input fields take up the full width */
+  margin: 0 auto; /* Horizontally center the input */
+  margin-bottom: -20px; /* Adjust margin between textboxes */
+  border: 1px solid #9b9a9a; /* Border to ensure consistency */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+/* Adjust margin between input group containers */
+.input-group {
+  margin-bottom: 15px; /* Space between input boxes */
+}
+
+/* Input Group Text (Icons inside Input) */
+.input-group-text {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  font-size: 1.2rem;
+}
+
+/* Icon Style inside the Input */
+.input-group .bi {
+  font-size: 1.2rem;
+  color: #13322b; /* Change to your desired icon color */
+  padding-left: -10px; /* Adjust position of icon */
+  position: absolute;
+  left: 5px; /* Aligning the icon */
+  top: 50%;
+  transform: translateY(-50%); /* Vertically centering the icon */
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  width: 100%; /* Full width of the parent */
+  
+  margin-top: 20px; /* Optional: adds spacing above the button */
+}
+
+
+/* Error Popup Style */
+.error-popup {
+  position: absolute;
+  top: 50px; /* Adjust this to position it correctly */
+  left: 0;
+  right: 0;
+  padding: 10px;
+  background-color: #ff4d4d; /* Red background for error */
+  color: white;
+  font-size: 0.9em;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animation for Error Popup */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Submit Button */
+.btn-primary {
+  background-color: #13322b; /* Updated color */
+  border-color: #13322b;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 10px 12px;  /* Adjusted padding for better size */
+  font-size: 1rem;  /* Slightly larger font size */
+  width: 100%;  /* Stretch button to full width */
+}
+
+
+.btn-primary:hover {
+  background-color: #0c1d16; /* Darker shade for hover effect */
+  border-color: #0c1d16;
+}
+
+/* Text Links (Forgot Password, Register) */
+.text-muted {
+  font-size: 0.9em;
+  color: #6c757d !important;  /* Light gray color */
+}
+
+.text-muted:hover {
+  color: #007bff !important;  /* Blue color on hover */
+}
+
+.text-center a {
+  text-decoration: none;
+}
+
+/* Styling for Forgot Password and Register Links */
+a {
+  font-size: 0.9em;
+  color: #6c757d;
+}
+
+a:hover {
+  color: #007bff;
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .card {
+    padding: 20px;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+}
+
+/* Styling for the Eye Icon (Password visibility toggle) */
+.input-group-append .password-toggle {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.input-group-append .password-toggle:hover i {
+  color: #0056b3;  /* Darker blue color on hover */
+}
+
+/* Optional: Add spacing for better alignment */
+.input-group-append {
+  padding-left: 10px;  /* Ensure space between the input and the icon */
+}
+/* Styling for the error messages */
+.text-danger {
+  color: #dc3545;  /* Red color for errors */
+  font-size: 0.875rem;  /* Smaller text size */
+  margin-top: 5px;  /* Adds some space between input and error */
+  font-weight: normal;  /* Use normal font weight */
+  padding-left: 25px;  /* Indent text to align with input */
+  display: block;
+}
+
+/* Optional: Fade in effect for error messages */
+.text-danger {
+  opacity: 0;
+  animation: fadeIn 0.3s forwards;
+}
+
+@keyframes fadeIn {
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+

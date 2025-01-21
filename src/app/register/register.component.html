@@ -1,0 +1,60 @@
+<app-header></app-header>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<div class="hero-image">
+  <div class="container">
+    <div class="card shadow-lg position-relative">
+      <!-- Registration Icon -->
+      <img src="https://i.ibb.co/9N593R4/login200.png" alt="Registration Icon" id="top-icon" style="width: 100px; height: 100px;">
+      <h3 class="text-center mb-4"></h3>
+      
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit()">
+        
+        <!-- Email Input for DLSAU Email -->
+        <div class="form-group">
+          <label for="email"></label>
+          <div class="input-group">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-control pl-5"
+              placeholder="you@dlsau.edu.ph"
+              required
+              [(ngModel)]="email"
+              #emailInput="ngModel" />
+          
+            <div class="input-group-prepend">
+              <span class="input-group-text position-absolute" style="left: 10px; top: -5px;">
+                <i class="bi bi-envelope"></i>
+              </span>
+            </div>
+          </div>
+          <div *ngIf="emailInput.invalid && emailInput.touched" class="text-danger">
+            Please enter a valid DLSAU email address.
+          </div>
+        </div>
+
+        <!-- Send OTP Button -->
+        <div class="form-group mt-3">
+          <button type="button" class="btn btn-primary btn-block" (click)="sendOtp()">Send OTP</button>
+        </div>
+
+        <!-- Success or Error Message -->
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3">
+          {{ errorMessage }}
+        </div>
+        <div *ngIf="successMessage" class="alert alert-success mt-3">
+          {{ successMessage }}
+        </div>
+
+        <!-- Already Have Account Link -->
+        <div class="text-center mt-3">
+          <p class="text-muted" style="font-size: 0.9em;">Already have an account? 
+            <a routerLink="/login" class="font-weight-bold text-muted" style="text-decoration: underline;">Login here</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

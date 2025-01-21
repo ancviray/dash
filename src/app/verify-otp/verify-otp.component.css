@@ -1,0 +1,199 @@
+.hero-image {
+    background-image: url("https://i.ibb.co/S7MjgYN/dlsaucampus.png");
+    background-color: #030303; /* Fallback color */
+    background-position: center, center;
+    background-size: cover;
+    height: 100vh; /* Full height */
+  }
+  
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;  /* Add padding around the content */
+  }
+  
+  .card {
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-control {
+    border-radius: 10px;
+    text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+  }
+  .card .btn-block {
+    display: flex;
+    justify-content: center;  /* Horizontally center the button */
+    align-items: center;      /* Vertically center the button */
+    width: 100%;
+  }
+  .btn-primary {
+    background-color: #13322b;
+    border-color: #13322b;
+    font-weight: bold;
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 1rem;
+  
+  }
+  .input-group {
+  display: flex;
+  justify-content: center;
+}
+  
+  .btn-primary:hover {
+    background-color: #0c1d16;
+    border-color: #0c1d16;
+  }
+  
+  .btn-link {
+    font-size: 0.9em;
+    text-decoration: none;
+  }
+  
+  .btn-link:hover {
+    text-decoration: underline;
+  }
+  
+
+  
+  .bi-envelope {
+    font-size: 1.2rem; /* Adjust size for better visibility */
+  }
+  
+/* Style the OTP input box */
+.otp-box {
+    width: 50px;  /* Width for each input box */
+    height: 50px;  /* Height of the input box */
+    text-align: center; /* Center the text inside */
+    font-size: 1.5rem;  /* Adjust text size */
+    letter-spacing: 2px; /* Space out the digits */
+    margin: 0 5px;  /* Add space between boxes */
+    border-radius: 10px;  /* Rounded corners */
+    border: 1px solid #ccc;  /* Light border around the input */
+    outline: none; /* Remove outline */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Add shadow effect to the input box */
+  }
+  
+  /* Add focus style to the input box */
+  .otp-box:focus {
+    border-color: #13322b; /* Darker border color on focus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Add shadow effect on focus */
+  }
+  
+  /* Position the OTP input boxes container */
+  .input-group {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Additional styling for the inputs */
+  .input-group input {
+    padding-left: 15px; /* Adjust padding for each box */
+  }
+
+  /* Style for the back button and positioning it on the top left */
+.back-button {
+    position: absolute;
+    top: 8px;
+    left: 20px;
+    z-index: 10;
+  }
+  
+  .back-button a {
+    font-size: 1.2rem;
+    color: #13322b;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  .back-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    background-color: #13322b;  /* Circle background color */
+    color: #fff;  /* Color of the arrow icon */
+    border-radius: 50%;  /* Make it a circle */
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional shadow */
+  }
+
+  .back-circle i {
+    font-size: 1.2rem; /* Size of the arrow icon */
+  }
+  
+  
+  .back-button a:hover {
+    color: #0c1d16;
+    text-decoration: underline;
+  }
+
+  .back-text {
+    font-size: 0.8rem; /* Smaller text size */
+  color: #13322b;  /* Text color */
+  font-weight: normal;  /* Make the text normal weight */
+  margin-left: 8px; /* Add space between the icon and the text */
+  }
+  
+  /* Style the OTP input box */
+  .otp-box {
+    width: 50px;  /* Width for each input box */
+    height: 50px;  /* Height of the input box */
+    text-align: center; /* Center the text inside */
+    font-size: 1.5rem;  /* Adjust text size */
+    letter-spacing: 2px; /* Space out the digits */
+    margin: 0 5px;  /* Add space between boxes */
+    border-radius: 10px;  /* Rounded corners */
+    border: 1px solid #ccc;  /* Light border around the input */
+    outline: none; /* Remove outline */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* Add shadow effect to the input box */
+  }
+  
+  /* Add focus style to the input box */
+  .otp-box:focus {
+    border-color: #13322b; /* Darker border color on focus */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Add shadow effect on focus */
+  }
+  
+  /* Position the OTP input boxes container */
+  .input-group {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Additional styling for the inputs */
+  .input-group input {
+    padding-left: 15px; /* Adjust padding for each box */
+  }
+  
+  /* Style for the OTP icon above the input fields */
+  .text-center i {
+    color: #13322b; /* Change color of the icon */
+  }
+  
+  /* Margin for the heading */
+h3.text-center.mb-4 {
+    margin-bottom: 20px; /* Adjust the bottom margin of the heading */
+  }
+  
+  /* Margin for the paragraph text */
+  p.text-center.text-muted {
+    margin-bottom: -10px; /* Adjust the bottom margin of the paragraph */
+  }
+  
+  /* Margin for the Submit Button */
+  button.btn.btn-primary.btn-block.mt-3 {
+    margin-top: 60px; /* Adjust the top margin of the submit button */
+  }
+  
+  

@@ -1,0 +1,200 @@
+/* General Container Styling */
+.container {
+  margin-top: 50px;
+  padding: 20px;
+  margin-left: 320px;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+}
+
+/* Center the doctor schedule content */
+.doctor-schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.doctor-schedule h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.doctor-schedule p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.schedule-table th {
+  background-color: #13322b; /* Change the table header color */
+  color: white; /* Ensures text is readable on the new dark background */
+}
+
+
+
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.red-button {
+  background-color: #f44336;
+  color: white;
+}
+.red-button:hover {
+  background-color: darkred; /* Darker shade of red on hover */
+}
+
+/* Button Colors */
+.green-button {
+  background-color: #4CAF50;
+  color: white;
+}
+.green-button:hover {
+  background-color: darkgreen; /* Darker shade of green on hover */
+}
+
+/* Prevent button color from changing on hover */
+button:hover {
+  background-color: inherit; /* Keeps the button color as is on hover */
+  color: inherit;
+}
+
+/* Edit Mode Styles */
+button:active, button:focus {
+  outline: none;
+}
+.save-button {
+  background-color: #2196F3;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+
+/* Doctor Switch Styles */
+.doctor-switch {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.doctor-switch button {
+  padding: 12px 25px;
+  margin: 0 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #4b4b4b;
+  border-radius: 4px;
+}
+
+.doctor-switch button:hover {
+  background-color: #e0e0e0;
+}
+
+.doctor-switch button.active {
+  background-color: #45a049;
+  color: white;
+}
+
+/* Doctor Schedule Section */
+.doctor-availability-section {
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.schedule {
+  margin-bottom: 20px;
+}
+
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .schedule-table th, .schedule-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .doctor-switch button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .time-slot-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    margin: 5px 10px;
+  }
+}
+
+/* Style for the color guide text */
+.color-guide-container p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 12px; /* Slightly bigger text for readability */
+}
+
+.availability-circle {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px; /* Space between time and circle */
+}
+
+/* Green circle for available slots */
+.availability-circle.available {
+  background-color: green;
+}
+
+/* Red circle for unavailable slots */
+.availability-circle.unavailable {
+  background-color: red;
+}
+
+/* Color Guide Container Styling */
+.color-guide-container {
+  background-color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #000000; /* Black border for the container */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0px;
+  max-width: 400px;
+  font-size: 10px;
+  float: right; /* Aligns the color guide container to the right */
+  margin-right: 20px;
+  margin-top: -65px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+}

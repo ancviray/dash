@@ -1,0 +1,114 @@
+<app-dashboard></app-dashboard>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<div class="container">
+  <div class="doctor-schedule">
+    <h2>Doctor's Schedule</h2>
+    <p>Easily organize and update doctor and dentist schedules</p>
+  </div>
+
+  <hr>
+  
+  <div class="color-guide-container-wrapper">
+    <div class="color-guide-container">
+        <p><strong>Schedule Color Guide: </strong><span class="availability-circle available"></span> Available <span class="availability-circle unavailable"></span> Unavailable </p>
+    </div>
+
+  <!-- Doctor Switch Button -->
+  <div class="doctor-switch">
+    <button (click)="toggleDoctor('santos')" [class.active]="selectedDoctor === 'santos'">Dr. Camilo B. Santos</button>
+    <button (click)="toggleDoctor('nery')" [class.active]="selectedDoctor === 'nery'">Dr. Marietta G. Nery</button>
+  </div>
+  
+  <!-- Dr. Camilo B. Santos Schedule -->
+  <div *ngIf="selectedDoctor === 'santos'" class="doctor-availability-section" id="doctor-availability">
+    <div class="schedule">
+      <h3>Dr. Camilo B. Santos, RMT, MD, FPASMAP (Physician)</h3>
+      
+      <!-- Schedule Table for Dr. Camilo -->
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Morning Schedule</th>
+            <th>Afternoon Schedule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of doctorSchedule; let i = index">
+            <td>{{ schedule.day }}</td>
+            <td>
+              <div class="time-slot-container">
+                <button *ngFor="let time of schedule.morning; let j = index" 
+                        [ngClass]="{'red-button': time.isRed, 'green-button': !time.isRed}" 
+                        (click)="toggleTimeColor(schedule.morning, j)">
+                  {{ time.time }}
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="time-slot-container">
+                <button *ngFor="let time of schedule.afternoon; let j = index" 
+                        [ngClass]="{'red-button': time.isRed, 'green-button': !time.isRed}" 
+                        (click)="toggleTimeColor(schedule.afternoon, j)">
+                  {{ time.time }}
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Edit Mode Switch -->
+      <button (click)="toggleEditMode()">
+        {{ isEditMode ? 'Save' : 'Edit' }}
+      </button> 
+    </div>
+  </div>
+
+  <!-- Dr. Marietta G. Nery, DMD Schedule -->
+  <div *ngIf="selectedDoctor === 'nery'" class="doctor-availability-section" id="doctor-availability">
+    <div class="schedule">
+      <h3>Dr. Marietta G. Nery, DMD (Dentist)</h3>
+      
+      <!-- Schedule Table for Dr. Marietta -->
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Day</th>
+            <th>Morning Schedule</th>
+            <th>Afternoon Schedule</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let schedule of doctorScheduleMarietta; let i = index">
+            <td>{{ schedule.day }}</td>
+            <td>
+              <div class="time-slot-container">
+                <button *ngFor="let time of schedule.morning; let j = index" 
+                        [ngClass]="{'red-button': time.isRed, 'green-button': !time.isRed}" 
+                        (click)="toggleTimeColorMarietta(schedule.morning, j)">
+                  {{ time.time }}
+                </button>
+              </div>
+            </td>
+            <td>
+              <div class="time-slot-container">
+                <button *ngFor="let time of schedule.afternoon; let j = index" 
+                        [ngClass]="{'red-button': time.isRed, 'green-button': !time.isRed}" 
+                        (click)="toggleTimeColorMarietta(schedule.afternoon, j)">
+                  {{ time.time }}
+                </button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Edit Mode Switch for Dr. Marietta -->
+      <button (click)="toggleEditModeMarietta()">
+        {{ isEditModeMarietta ? 'Save' : 'Edit' }}
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+.container {
+    margin-top: 50px;
+    padding: 20px;
+    margin-left: 320px;
+    transition: all 0.3s ease-in-out; 
+  }
+
+  .data-report-container {
+    margin-top: 50px;
+    padding: 20px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h2, h3 {
+    text-align: center;
+  }
+  
+  .illness-count {
+    margin-bottom: 30px;
+  }
+  
+  .bar-chart-container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .data-report-container {
+    margin: 20px auto;
+    max-width: 800px;
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  h2, h3 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .illness-count ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .illness-count li {
+    margin: 5px 0;
+    font-size: 16px;
+  }
+  
+  .bar-chart-container, .pie-chart-container {
+    margin: 20px auto;
+    text-align: center;
+  }
+  

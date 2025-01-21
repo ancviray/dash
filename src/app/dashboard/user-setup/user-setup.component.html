@@ -1,0 +1,174 @@
+<app-header></app-header>
+<app-dashboard></app-dashboard>
+<div class="container">
+  <div class="text-center mb-4">
+    <h2>User Management</h2>
+    <p>Manage and customize user account details and preferences</p>
+  </div>
+
+  <hr>
+
+<!-- Success Add Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 40%; width: 40%;">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #28a745; color: white; text-align: center;">
+        <h5 class="modal-title" id="successModalLabel">Success</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>{{ successMessage }}</p>
+      </div>
+      <div class="modal-footer d-flex justify-content-center w-100">
+        <button type="button" class="btn custom-close-btn mx-2" data-bs-dismiss="modal">
+          <i class="bi bi-x-circle"></i> Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Table displaying users -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">User Type</th>
+        <th scope="col">ID Number</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Comment</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody id="userTable">
+      <tr *ngFor="let user of users">
+        <td>{{ user.user_type }}</td>
+        <td>{{ user.id_number }}</td>
+        <td>{{ user.firstname }}</td>
+        <td>{{ user.lastname }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.comment }}</td>
+        <td>
+          <!-- Edit Button -->
+          <button class="btn btn-link p-0" (click)="onEdit(user)">
+            <i class="bi bi-pencil edit-icon"></i>
+          </button>
+        </td>
+        <td>
+          <!-- Delete Button -->
+          <button class="btn btn-link p-0" (click)="onDelete(user.email)">
+          <i class="bi bi-trash delete-icon"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button class="btn btn-primary mb-3" id="addUserBtn" data-bs-toggle="modal" data-bs-target="#addUserModal">
+      <i class="bi bi-plus-circle"></i> Add More
+    </button>
+  </div>
+
+  <!-- Modal for Adding/Editing User -->
+  <div class="modal fade" id="addUserModal" tabindex="-1" aria-labelledby="addUserModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" style="max-width: 40%; width: 40%;">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #13322b; color: white; text-align: center;">
+        <h5 class="modal-title" id="addUserModalLabel">{{ isEditMode ? 'Edit User' : 'Add New User' }}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+            <!-- User Type Selection -->
+            <div class="mb-3">
+              <label for="userType" class="form-label">User Type</label>
+              <select class="form-select" id="userType" [(ngModel)]="user.user_type" name="user_type" required [ngStyle]="{'width': '30%'}">
+                <option *ngFor="let type of userTypes" [value]="type">{{ type }}</option>
+              </select>
+            </div>
+
+            <!-- ID Number Input -->
+            <div class="mb-3">
+              <label for="idNumber" class="form-label">ID Number</label>
+              <input type="text" class="form-control" id="idNumber" [(ngModel)]="user.id_number" name="id_number" placeholder="Enter ID Number" required [ngClass]="{'is-invalid': addForm.submitted && !user.id_number}">
+              <div *ngIf="addForm.submitted && !user.id_number" class="invalid-feedback">
+                ID Number is required.
+              </div>
+            </div>
+
+            <!-- First Name Input -->
+            <div class="mb-3">
+              <label for="firstName" class="form-label">First Name</label>
+              <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstname" name="firstName" placeholder="Enter first name" required [ngClass]="{'is-invalid': addForm.submitted && !user.firstname}">
+              <div *ngIf="addForm.submitted && !user.firstname" class="invalid-feedback">
+                First name is required.
+              </div>
+            </div>
+
+            <!-- Last Name Input -->
+            <div class="mb-3">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastname" name="lastName" placeholder="Enter last name" required [ngClass]="{'is-invalid': addForm.submitted && !user.lastname}">
+              <div *ngIf="addForm.submitted && !user.lastname" class="invalid-feedback">
+                Last name is required.
+              </div>
+            </div>
+
+            <!-- Email Input -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input 
+                type="email" 
+                class="form-control" 
+                id="email" 
+                [(ngModel)]="user.email" 
+                name="email" 
+                placeholder="Enter email" 
+                required 
+                [ngClass]="{'is-invalid': addForm.submitted && !user.email}"
+                [disabled]="isEditMode"
+              >
+              <div *ngIf="addForm.submitted && !user.email" class="invalid-feedback">
+                Email is required.
+              </div>
+            </div>
+
+            <!-- Password Visibility Toggle -->
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input [type]="passwordVisible ? 'text' : 'password'" class="form-control" id="password" [(ngModel)]="user.password" name="password" placeholder="Enter password" required [ngClass]="{'is-invalid': addForm.submitted && !user.password}">
+              <div *ngIf="addForm.submitted && !user.password" class="invalid-feedback">
+                Password is required.
+            </div>
+
+            <!-- Toggle visibility button -->
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="showPassword" (change)="togglePasswordVisibility()" />
+              <label class="form-check-label" for="showPassword">Show Password</label>
+              </div>
+            </div>
+
+            <!-- Comment Input -->
+            <div class="mb-3">
+              <label for="comment" class="form-label">Comment</label>
+              <input type="text" class="form-control" id="comment" [(ngModel)]="user.comment" name="comment" placeholder="Enter comment" [ngClass]="{'is-invalid': addForm.submitted && !user.comment}">
+            </div>
+
+            <div class="modal-footer d-flex justify-content-center w-100">
+              <button type="button" class="btn custom-close-btn mx-2" data-bs-dismiss="modal">
+                <i class="bi bi-x-circle"></i> Close
+              </button>
+              <button type="submit" class="btn custom-save-btn mx-2" [disabled]="!addForm.valid">
+                <i class="bi bi-check"></i> Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

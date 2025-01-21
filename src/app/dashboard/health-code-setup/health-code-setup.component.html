@@ -1,0 +1,114 @@
+<app-header></app-header>
+<app-dashboard></app-dashboard>
+<div class="container">
+  <div class="text-center mb-4">
+    <h2>Health Condition Color Mapping</h2>
+    <p>This section lets you manage color-coded health categories, ensuring efficient triage and patient care.</p>
+  </div>
+
+  <hr>
+
+  <!-- Success Add Modal -->
+  <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 40%; width: 40%;">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #28a745; color: white; text-align: center;">
+          <h5 class="modal-title" id="successModalLabel">Success</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>{{ successMessage }}</p>
+        </div>
+        <div class="modal-footer d-flex justify-content-center w-100">
+          <button type="button" class="btn custom-close-btn mx-2" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Category List Table -->
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">No.</th>
+        <th scope="col">Category Name</th>
+        <th scope="col">Color</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody id="categoryTable">
+      <tr *ngFor="let category of categories">
+        <td>{{ category.id_num }}</td>
+        <td>{{ category.category_name }}</td>
+        <td>
+          <span class="color-box" [style.background-color]="category.color"></span>
+        </td>
+        <td>
+          <!-- Edit Button -->
+          <button class="btn btn-link p-0" (click)="onEdit(category)">
+          <i class="bi bi-pencil edit-icon"></i>
+          </button>
+        </td>
+        <td>
+          <!-- Delete Button-->
+          <button class="btn btn-link p-0" (click)="onDelete(category.id_num.toString())">
+            <i class="bi bi-trash delete-icon"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Button to Open Add Category Modal -->
+  <div fxLayout="row" fxLayoutAlign="end center">
+    <button class="btn btn-primary mb-3" id="addCategoryBtn" data-bs-toggle="modal" data-bs-target="#addCategoryModal">
+      <i class="bi bi-plus-circle"></i> Add More
+    </button>
+  </div>
+
+
+  <!-- Modal for Adding/Editing User -->
+  <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="max-width: 40%; width: 40%;">
+      <div class="modal-content">
+        <div class="modal-header" style="background-color: #13322b; color: white; text-align: center;">
+          <h5 class="modal-title" id="addUserModalLabel">{{ isEditMode ? 'Edit Category' : 'Add New Category' }}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+          <div class="modal-body">
+            <form #addForm="ngForm" (ngSubmit)="onSubmit(addForm)">
+            <!-- Category Name Input -->
+            <div class="mb-3">
+              <label for="category_name" class="form-label">Category Name</label>
+              <input type="text" class="form-control" id="category_name" [(ngModel)]="category.category_name" name="category_name" placeholder="Enter category name" required [ngClass]="{'is-invalid': addForm.submitted && !category.category_name}">
+              <div *ngIf="addForm.submitted && !category.category_name" class="invalid-feedback">
+                Category name is required.
+              </div>
+            </div>
+            <!-- Category Color Input -->
+            <div class="input-group">
+              <label for="color" class="form-label">Category Color</label>
+              <input type="color" [(ngModel)]="category.color" id="color" name="color"/>
+              <div *ngIf="addForm.submitted && !category.color" class="invalid-feedback">
+                Please select color.
+              </div>
+          </div>
+
+        <div class="modal-footer" d-flex justify-content-center w-100>
+          <button type ="button" class="btn custom-close-btn mx-2" data-bs-dismiss="modal">
+            <i class="bi bi-x-circle"></i> Close
+          </button>
+          <button type="submit" class="btn custom-save-btn mx-2" [disabled]="!addForm.valid">
+            <i class="bi bi-check"></i> Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+

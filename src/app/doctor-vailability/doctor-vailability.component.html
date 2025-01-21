@@ -1,0 +1,188 @@
+
+<app-navbar></app-navbar>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<div id="doctors" class="doctors-component"></div>
+
+<!-- healthcare-provider-schedule.component.html -->
+
+<div class="healthcare-provider-schedule">
+    <div id="Doctor">
+    <div class="date-container">
+        <h1 class="schedule-heading">Healthcare Provider Availability Schedule</h1>
+        <p><strong>Date Today:</strong> {{ today }}</p>
+      
+    </div>
+    <hr class="line">
+    <div class="color-guide-container-wrapper">
+        <div class="color-guide-container">
+            <p><strong>Schedule Color Guide: </strong><span class="availability-circle available"></span> Available <span class="availability-circle unavailable"></span> Unavailable </p>
+        </div>
+
+        <div class="doctor-availability-section" id="doctor-availability">
+            <div class="schedule">
+                <h3>Dr. Camilo B. Santos, RMT, MD, FPASMAP (Physician)</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th>Morning Schedule</th>
+                            <th>Afternoon Schedule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="schedule-row">
+                            <td>Monday</td>
+                            <td>
+                                <button class="slot">8:00 AM</button>
+                                <button class="slot">9:00 AM</button>
+                                <button class="slot">10:00 AM</button>
+                                <button class="slot">11:00 AM</button>
+                            </td>
+                            <td>
+                                <button class="slot">1:00 PM</button>
+                                <button class="slot">2:00 PM</button>
+                                <button class="slot">3:00 PM</button>
+                                <button class="slot">4:00 PM</button>
+                                <button class="slot">5:00 PM</button>
+                            </td>
+                        </tr>
+                        <tr class="schedule-row">
+                            <td>Tuesday</td>
+                            <td>
+                                <button class="slot">9:00 AM</button>
+                                <button class="slot">10:00 AM</button>
+                                <button class="slot">11:00 AM</button>
+                            </td>
+                            <td>
+                                <button class="slot">1:00 PM</button>
+                                <button class="slot">2:00 PM</button>
+                                <button class="slot">3:00 PM</button>
+                            </td>
+                        </tr>
+                        <tr class="schedule-row">
+                            <td>Wednesday</td>
+                            <td>
+                                <button class="slot">9:00 AM</button>
+                                <button class="slot">10:00 AM</button>
+                                <button class="slot">11:00 AM</button>
+                            </td>
+                            <td>
+                                <button class="slot">1:00 PM</button>
+                                <button class="slot">2:00 PM</button>
+                                <button class="slot">3:00 PM</button>
+                            </td>
+                        </tr>
+                        <tr class="schedule-row">
+                            <td>Thursday</td>
+                            <td>
+                                <button class="slot">9:00 AM</button>
+                                <button class="slot">10:00 AM</button>
+                                <button class="slot">11:00 AM</button>
+                            </td>
+                            <td>
+                                <button class="slot">1:00 PM</button>
+                                <button class="slot">2:00 PM</button>
+                                <button class="slot">3:00 PM</button>
+                            </td>
+                        </tr>
+                        <tr class="schedule-row">
+                            <td>Friday</td>
+                            <td>
+                                <button class="slot">9:00 AM</button>
+                                <button class="slot">10:00 AM</button>
+                                <button class="slot">11:00 AM</button>
+                            </td>
+                            <td>
+                                <button class="slot">1:00 PM</button>
+                                <button class="slot">2:00 PM</button>
+                                <button class="slot">3:00 PM</button>
+                            </td>
+                        </tr>
+                        <tr class="schedule-row">
+                            <td>Saturday</td>
+                            <td>
+                                <button class="slot">9:00 AM</button>
+                                <button class="slot">10:00 AM</button>
+                                <button class="slot">11:00 AM</button>
+                            </td>
+                            <td>
+                                <button class="slot">1:00 PM</button>
+                                <button class="slot">2:00 PM</button>
+                                <button class="slot">3:00 PM</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="schedule-disclaimer">
+                    <i class="fas fa-info-circle"></i>Reminder: This schedule applies to the current week only.
+                </p>
+            </div>
+        </div>
+       <!-- Add the 3 dots (ellipsis) after the table -->
+    <button class="ellipsis-button" aria-label="More options">
+        <i class="fas fa-ellipsis-h"></i>
+      </button>
+    
+            </div>
+          </div>
+          <div class="doctor-availability-section" id="doctor-availability">
+            <div class="schedule">
+              <h3>Dr. Marietta G. Nery, DMD (Dentist)</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Day</th>
+                    <th>Morning Schedule</th>
+                    <th>Afternoon Schedule</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tuesday</td>
+                    <td>
+                      <button class="slot">9:00 AM</button>
+                      <button class="slot">10:00 AM</button>
+                      <button class="slot">11:00 AM</button>
+                    </td>
+                    <td>
+                      <button class="slot">1:00 PM</button>
+                      <button class="slot">2:00 PM</button>
+                      <button class="slot">3:00 PM</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Thursday</td>
+                    <td>
+                      <button class="slot">9:00 AM</button>
+                      <button class="slot">10:00 AM</button>
+                      <button class="slot">11:00 AM</button>
+                    </td>
+                    <td>
+                      <button class="slot">1:00 PM</button>
+                      <button class="slot">2:00 PM</button>
+                      <button class="slot">3:00 PM</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Saturday</td>
+                    <td>
+                      <button class="slot">9:00 AM</button>
+                      <button class="slot">10:00 AM</button>
+                      <button class="slot">11:00 AM</button>
+                    </td>
+                    <td>
+                      <button class="slot">1:00 PM</button>
+                      <button class="slot">2:00 PM</button>
+                      <button class="slot">3:00 PM</button>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <p class="schedule-disclaimer">
+                <i class="fas fa-info-circle"></i> Reminder: This schedule applies to the current week only.
+              </p>
+            </div>
+          </div>
+          
+          

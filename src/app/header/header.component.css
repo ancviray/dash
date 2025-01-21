@@ -1,0 +1,72 @@
+.navbar {
+    background-color: #13322b; /* Dark green background */
+    padding: 1rem; /* Adjusted padding for better spacing */
+    display: flex;
+    justify-content: space-between; /* Adjusted to space items correctly */
+    align-items: center; /* Center items vertically */
+    position: fixed; /* Fixed position to make the navbar float */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure navbar stays on top */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add shadow for floating effect */
+    transition: all 0.3s ease-in-out; 
+  }
+    
+    .nav-link {
+      color: #ffffff !important; /* White text */
+      transition: all 0.3s ease-in-out; 
+    }
+    
+    .nav-link:hover {
+      color: #00a389 !important; /* Light green hover effect */
+      transition: all 0.3s ease-in-out; 
+    }
+    
+    .navbar-brand img {
+      border-radius: 50%; /* Make the icon/logo circular */
+    }
+    
+    /* Add spacing to ensure content is not hidden under the navbar */
+    body {
+      padding-top: 70px; /* Adjust based on navbar height */
+    }
+    
+    /* Responsive Design for Tablets */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px; /* Adjust padding for smaller screens */
+      }
+    
+      .navbar-brand img {
+        height: 40px; /* Reduce logo size for tablets */
+        margin-right: 8px;
+      }
+    
+      .nav-link {
+        font-size: 14px; /* Smaller font size for links */
+      }
+    }
+    
+    /* Responsive Design for Phones */
+    @media (max-width: 576px) {
+      .navbar {
+        padding: 8px; /* Further reduce padding for smaller screens */
+      }
+    
+      .navbar-brand img {
+        height: 35px; /* Reduce logo size for phones */
+        margin-right: 5px;
+      }
+    
+      .nav-link {
+        font-size: 12px; /* Even smaller font size for links */
+        text-align: center; /* Center-align text */
+      }
+    
+      /* Center links in a vertical stack on small screens */
+      .navbar-nav {
+        flex-direction: column;
+      }
+    }
+    

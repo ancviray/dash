@@ -1,0 +1,87 @@
+<app-header></app-header>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <nav class="col-md-2 d-none d-md-block bg-light sidebar">
+      <div class="sidebar-sticky">
+        <!-- Login Icon at the top -->
+        <div class="sidebar-header text-center">
+          <i class="bi bi-person-circle" style="font-size: 60px; color: #13322b; padding: 40px;"></i>
+        </div>
+
+
+         <!-- Hi User Text with Green Shadow Box -->
+        <div class="text-center user-greeting">
+        <p>Hi, {{ user }}</p> <!-- Display dynamic user -->
+      </div>
+
+
+        <!-- Navigation Links -->
+        <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/data-report" routerLinkActive="active">
+            <i class="bi bi-bar-chart"></i>
+            Reports
+          </a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/medical-assessments" routerLinkActive="active">
+              <i class="bi bi-file-earmark-medical"></i>
+              Medical Assessments
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/doctors-schedule" routerLinkActive="active">
+              <i class="bi bi-calendar-check"></i>
+              Doctor’s Schedule
+            </a>
+          </li>
+          <!-- Conditionally render Medical Records based on allowed roles -->
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/medical-records" routerLinkActive="active">
+              <i class="bi bi-file-earmark-text"></i>
+              Medical Records
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/health-code" routerLinkActive="active">
+              <i class="bi bi-shield-lock"></i>
+              Health Code Setup
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/user-setup" routerLinkActive="active">
+              <i class="bi bi-person-fill"></i>
+              User Setup
+            </a>
+          </li>
+        </ul>
+
+        <!-- Sign Out Button at the bottom -->
+        <div class="sidebar-footer text-center">
+          <button class="btn btn-danger" id="signOutBtn" (click)="signOut()">
+            <i class="bi bi-box-arrow-right"></i> Sign Out
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <!-- Main Header with Icon -->
+      <div class="main-header d-flex align-items-center mb-4">
+        <i class="bi bi-house-door" style="font-size: 30px; margin-right: 10px;"></i>
+        <h1>Main Content Area</h1>
+      </div>
+      
+      <!-- Content Placeholder -->
+      <router-outlet></router-outlet>
+    </main>
+
+
+    
+  </div>
+</div>
