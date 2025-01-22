@@ -3,11 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --watch | node ./src/app/server.js",
+    "start": "ng serve --watch --no-hmr | node ./src/app/server.js",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "start:high": "node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng serve | node ./src/app/server.js"
+    "start:high": "node --max-old-space-size=4096 ./node_modules/@angular/cli/bin/ng serve --watch --no-hmr | node ./src/app/server.js"
   },
   "private": true,
   "dependencies": {

@@ -1,37 +1,13 @@
+<app-header></app-header>
 <app-dashboard></app-dashboard>
-
 <div class="container">
-    <h2>Reports</h2>
-    <p>Content for medical assessments will go here.</p>
-
-    <div class="data-report-container">
+  <div class="text-center mb-4">
         <h2>Health Trends and Insights</h2>
         
         <!-- Display the count of students for each illness -->
-        <div class="illness-count">
-          <h3>Illness Count</h3>
-          <ul>
-            <li *ngFor="let illness of illnesses">
-              <strong>{{ illness.name }}:</strong> {{ illness.count }} Students
-            </li>
-          </ul>
-        </div>
-      
-        <hr>
-      
-        <!-- Display the Bar Chart for Seasonal Illness Trends -->
-        <div class="bar-chart-container">
-          <h3>Seasonal Illness Trends</h3>
+        <div class="chart-container">
+          <h2 class="text-center">Illness Data Report</h2>
           <canvas id="barChart"></canvas>
-        </div>
-      
-        <hr>
-      
-        <!-- Display the Pie Chart -->
-        <div class="pie-chart-container">
-          <h3>Illness Distribution</h3>
-          <canvas id="pieChart"></canvas>
-        </div>
-      </div>
+        </div>        
       
   

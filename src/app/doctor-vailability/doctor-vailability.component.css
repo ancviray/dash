@@ -1,244 +1,217 @@
-/* Healthcare Provider Schedule */
-.schedule-heading {
-    font-family: 'Poppins', sans-serif;
-    text-align: center;
-    margin-top: 30px;
-}
-/* Add margin to the date container to move it down */
-.date-container {
-    margin-top: 120px; /* Adjust the value as needed */
-  }
-.healthcare-provider-schedule {
-    text-align: center; /* Centers the whole section */
-    margin-bottom: 150px; /* Adds space below the header */
+/* General Container Styling */
+.container {
+  margin-top: 50px;
+  padding: 20px;
+  margin-left: 0px;
+  transition: all 0.3s ease-in-out;
+  font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+  flex-direction: column;
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
 }
 
+/* Center the doctor schedule content */
+.doctor-schedule {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 0px;
+}
+
+.doctor-schedule h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.doctor-schedule p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.schedule-table th, .schedule-table td {
+  padding: 15px;
+  text-align: center;
+  border: 1px solid #ddd;
+}
+
+.schedule-table th {
+  background-color: #13322b; /* Change the table header color */
+  color: white; /* Ensures text is readable on the new dark background */
+}
+
+
+
+
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+
+.red-button {
+  background-color: #f44336;
+  color: white;
+}
+.red-button:hover {
+  background-color: darkred; /* Darker shade of red on hover */
+}
+
+/* Button Colors */
+.green-button {
+  background-color: #4CAF50;
+  color: white;
+}
+.green-button:hover {
+  background-color: darkgreen; /* Darker shade of green on hover */
+}
+
+/* Prevent button color from changing on hover */
+button:hover {
+  background-color: inherit; /* Keeps the button color as is on hover */
+  color: inherit;
+}
+
+/* Edit Mode Styles */
+button:active, button:focus {
+  outline: none;
+}
+.save-button {
+  background-color: #2196F3;
+  color: white;
+  padding: 8px 15px;
+  border-radius: 4px;
+}
+
+
+/* Doctor Switch Styles */
+.doctor-switch {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+
+.doctor-switch button {
+  padding: 12px 25px;
+  margin: 0 10px;
+  background-color: #f4f4f4;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  color: #4b4b4b;
+  border-radius: 4px;
+}
+
+.doctor-switch button:hover {
+  background-color: #e0e0e0;
+}
+
+.doctor-switch button.active {
+  background-color: #45a049;
+  color: white;
+}
+
+/* Doctor Schedule Section */
 .doctor-availability-section {
-    padding: 30px;
-    background-color: #ffffff; /* Background color for doctor availability section */
-    margin-top: 50px;
-    border: 1px solid #f7f7f7;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fafafa;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.line {
-    border: 0;
-    border-top: 2px solid #000000; /* Black border for the line */
-    width: 100%;
-    margin: 15px auto 20px; /* Adjust margin for better spacing */
+/* Responsive Layout */
+@media screen and (max-width: 768px) {
+  .schedule-table th, .schedule-table td {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .doctor-switch button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .time-slot-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  button {
+    margin: 5px 10px;
+  }
 }
 
 /* Style for the color guide text */
 .color-guide-container p {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    font-size: 14px; /* Slightly bigger text for readability */
+  margin: 0;
+  display: flex;
+  align-items: center;
+  font-size: 12px; /* Slightly bigger text for readability */
 }
 
 .availability-circle {
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    display: inline-block;
-    margin-left: 10px; /* Space between time and circle */
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 10px; /* Space between time and circle */
 }
 
 /* Green circle for available slots */
 .availability-circle.available {
-    background-color: green;
+  background-color: green;
 }
 
 /* Red circle for unavailable slots */
 .availability-circle.unavailable {
-    background-color: red;
+  background-color: red;
 }
 
 /* Color Guide Container Styling */
 .color-guide-container {
-    background-color: #fff;
-    padding: 10px 30px;
-    border: 1px solid #000000; /* Black border for the container */
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 0px;
-    max-width: 400px;
-    font-size: 12px;
-    float: right; /* Aligns the color guide container to the right */
-    margin-right: 20px;
-    margin-top: -44px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
+  background-color: #fff;
+  padding: 10px 30px;
+  border: 1px solid #000000; /* Black border for the container */
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0px;
+  max-width: 400px;
+  font-size: 10px;
+  float: right; /* Aligns the color guide container to the right */
+  margin-right: 20px;
+  margin-top: -65px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
 }
+
 
 /* Styling for the disclaimer text */
 .schedule-disclaimer {
-    font-size: 14px;
-    color: #af3b3b;
-    font-style: italic;
-    text-align: center;
-    margin-top: 20px;
+  font-size: 14px;
+  color: #af3b3b;
+  font-style: italic;
+  text-align: center;
+  margin-top: 0px;
 }
 
 .schedule-disclaimer i {
-    margin-right: 8px;
-    color: #f31212;
+  margin-right: 8px;
+  color: #f31212;
 }
-
-/* General Styles */
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-.home-container {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.home-content {
-    flex: 1;
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-#current-date {
-    font-size: 18px;
-    color: #333;
-    margin-top: 10px;
-    font-weight: bold;
-}
-
-button {
-    padding: 12px 24px;
-    background-color: #0f0f0f;
-    color: white;
-    font-size: 16px;
-    border: 1px solid #000000; /* Black border for buttons */
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* General Table Styling */
-.schedule table {
-    width: 100%;
-    margin-top: 20px;
-    border-collapse: collapse;
-    background-color: #fafafa; /* Light background for the table */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-/* Table header */
-th {
-    padding: 12px 16px;
-    background-color: #13322b; /* Dark background for header */
-    color: white; /* White text for header */
-    font-weight: bold;
-    text-align: center;
-    border-radius: 0px 0px 0 0; /* Rounded corners for top */
-}
-
-/* Table cells */
-td {
-    padding: 10px 15px;
-    text-align: center;
-    border: 1px solid #ddd; /* Light gray border for table cells */
-    font-size: 14px; /* Slightly smaller text */
-    color: #333; /* Dark text color */
-    border-radius: 0 0 0px 0px; /* Rounded corners for bottom */
-    background-color: #fff; /* White background for table rows */
-}
-
-/* Alternating row colors */
-tr:nth-child(even) td {
-    background-color: #f7f7f7; /* Slightly darker background for even rows */
-}
-
-tr:nth-child(odd) td {
-    background-color: #ffffff; /* White background for odd rows */
-}
-
-/* Slot button inside the table */
-button.slot {
-    padding: 8px 12px;
-    margin: 5px;
-    background-color: green;
-    color: #dedee0;
-    border: 1px solid green;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
-}
-
-button.slot:hover {
-    background-color: #45a049;
-}
-
-/* Responsive Table */
-@media screen and (max-width: 768px) {
-    .schedule table {
-        font-size: 14px; /* Smaller font size for smaller screens */
-    }
-
-    th, td {
-        padding: 8px;
-    }
-}
-
-/* For mobile devices */
-@media screen and (max-width: 480px) {
-    .schedule table {
-        font-size: 12px; /* Even smaller font size for mobile */
-    }
-
-    th, td {
-        padding: 6px;
-    }
-}
-
-/* Center the date */
-.date-container {
-    text-align: center;
-    font-size: 20px;
-    font-family: 'Poppins', sans-serif; /* Add Poppins font */
-    margin-bottom: 10px;
-}
-
-/* Highlight today's schedule row */
-.highlight {
-    background-color: #ffeb3b; /* Yellow background */
-    font-weight: bold;
-  }
-  
-
-  .ellipsis-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    color: #333;
-    cursor: pointer;
-    margin-top: 10px;  /* Adjust space above the button */
-  }
-  
-  .ellipsis-button:hover {
-    color: #007bff;
-  }
-  
-  .ellipsis-button i {
-    font-size: 20px;
-  }
-
