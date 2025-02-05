@@ -13,6 +13,7 @@ import { DoctorsScheduleComponent } from './dashboard/doctors-schedule/doctors-s
 import { MedicalRecordsComponent } from './dashboard/medical-records/medical-records.component';
 import { AuthGuard } from './auth.guard'; // Import the AuthGuard
 import { DataReportComponent } from './dashboard/data-report/data-report.component';
+import { MedicalFormComponent } from './medical-form/medical-form.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'dashboard', component:  DashboardComponent},
   { path: 'data-report', component: DataReportComponent},
   { path: 'medical-records', component: MedicalRecordsComponent},
+  { path: 'medical-form', component: MedicalFormComponent},
   { path: '', redirectTo: 'login', pathMatch: "full" },
   { path: '**', redirectTo: 'login' } // Wildcard route to handle undefined paths
 

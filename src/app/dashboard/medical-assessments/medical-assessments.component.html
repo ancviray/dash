@@ -1,9 +1,51 @@
 <app-header></app-header>
-  <app-dashboard></app-dashboard>
-  <div class="container">
-    <div class="text-center mb-4">
-      <h2>Medical Assessments</h2>
-      <p>Content for medical assessments will go here.</p>
+<app-dashboard></app-dashboard>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<div class="container">
+  <div class="text-center mb-4">
+    <h2>Medical Assessments</h2>
+
+    <hr>
+    <div class="search-bar">
+      <input type="text" [(ngModel)]="searchText" placeholder="Search..." />
+      <button (click)="searchData()">Search</button>
     </div>
   
-    <hr>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>MID</th>
+          <th>Date</th>
+          <th>Last Name</th>
+          <th>First Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let record of displayedData">
+          <td>{{ record.MID }}</td>
+          <td>{{ record.date | date }}</td>
+          <td>{{ record.lastname }}</td>
+          <td>{{ record.firstname }}</td>
+          <td>
+            <button (click)="editRecord(record)">
+              <i class="fas fa-edit"></i> 
+            </button>
+            <button (click)="deleteRecord(record)">
+              <i class="fas fa-trash"></i> 
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="pagination">
+      <button (click)="prevPage()" [disabled]="currentPage === 1">Previous</button>
+      <span>Showing {{ startIndex + 1 }} to {{ endIndex }} of {{ totalRecords }} entries</span>
+      <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+    </div>
+  </div>
+
+  
+

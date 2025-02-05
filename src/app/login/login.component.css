@@ -18,7 +18,7 @@ html, body {
 
 
 .hero-image {
-  background-image: url("https://i.ibb.co/S7MjgYN/dlsaucampus.png");
+  background-image: url("../../../public/loginbg.png");
   background-color: #030303; /* fallback color */
   background-position: center,center;
   background-size: cover;

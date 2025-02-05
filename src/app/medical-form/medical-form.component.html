@@ -1,0 +1,676 @@
+<app-header></app-header>
+<app-dashboard></app-dashboard>
+
+
+<div class="container">
+    <div class="text-center mb-4">
+      <h2>Medical Form Assessments</h2>
+    </div>
+  
+    <hr>
+
+<!-- Toggle Buttons -->
+<div class="toggle-buttons">
+    <button 
+      class="btn btn-primary" 
+      [class.active]="activeSection === 'patientInfo'" 
+      (click)="toggleSection('patientInfo')">
+      Patient Information
+    </button>
+    <button 
+      class="btn btn-primary" 
+      [class.active]="activeSection === 'medicalHistory'" 
+      (click)="toggleSection('medicalHistory')">
+      Medical History
+    </button>
+    <button 
+      class="btn btn-primary" 
+      [class.active]="activeSection === 'assessmentStatus'" 
+      (click)="toggleSection('assessmentStatus')">
+      Assessment Status
+    </button>
+  </div>
+
+  <!-- Content Sections -->
+  <div class="content">
+
+    <!-- Patient Information Section -->
+    <div *ngIf="activeSection === 'patientInfo'">
+      <h3>Patient Information</h3>
+
+     <!-- General Information -->
+<div class="form-group" style="display: flex; gap: 10px; flex-wrap: wrap;">
+  <input type="text" class="form-control" placeholder="Enter your Student/Employee ID" />
+  <input type="text" class="form-control" placeholder="Enter your role (e.g., Student, Employee)" />
+  <input type="text" class="form-control" placeholder="Enter grade/level" />
+  <input type="text" class="form-control" placeholder="Enter course" />
+</div>
+
+<hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+
+<h4>General Information</h4>
+        <!-- Additional General Information -->
+        <div class="form-group" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="text" class="form-control" placeholder="Enter First Name" />
+          <input type="text" class="form-control" placeholder="Enter Middle initial" />
+          <input type="text" class="form-control" placeholder="Enter Last Name" />
+        <br>
+          <input type="text" class="form-control" placeholder="Suffix (Optional)" />
+          <input type="date" class="form-control" />
+          <input type="number" class="form-control small-input" placeholder="Enter age" />
+                    <!-- Gender Selection -->
+
+      
+        <select class="form-control">
+          <option value="">Select Gender</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+          <input type="text" class="form-control" placeholder="Enter address" />
+          <input type="text" class="form-control" placeholder="Enter contact number" />
+          <input type="email" class="form-control" placeholder="Enter DLSAU email" />
+
+ 
+           <!-- PWD Information -->
+           <div>
+            <label>PWD:</label>
+            <div>
+              <label><input type="radio" name="pwd" value="yes" (change)="showPwdId = true" /> Yes</label>
+              <label><input type="radio" name="pwd" value="no" (change)="showPwdId = false" /> No</label>
+            </div>
+  
+            <div *ngIf="showPwdId">
+              <label>PWD ID Number:</label>
+              <input type="text" class="form-control" placeholder="Enter PWD ID number" />
+            </div>
+          </div>
+  
+        </div>
+        <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+
+        
+        <h4 style="display: inline-block; margin-right: 10px;">Emergency contact Information</h4>
+        <div style="display: inline-block;">
+          <button 
+            class="btn-mergency btn-secondary" 
+            [class.active]="activeEmergency === 1" 
+            (click)="toggleEmergency(1)">
+            1
+          </button>
+          <button 
+            class="btn-mergency btn-secondary" 
+            [class.active]="activeEmergency === 2" 
+            (click)="toggleEmergency(2)">
+            2
+          </button>
+        </div>
+
+        <!-- Emergency Contact 1 -->
+        <div *ngIf="activeEmergency === 1" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          
+            <input type="text" class="form-control" placeholder="Enter first name" />
+            <input type="text" class="form-control" placeholder="Enter middle name" />
+            <input type="text" class="form-control" placeholder="Enter last name" />
+            <input type="text" class="form-control" placeholder="Suffix (Optional)" />
+            <input type="text" class="form-control" placeholder="Relationship to patient" />
+            <input type="text" class="form-control" placeholder="Enter contact number" />
+
+            <label>Health Insurance or HMO:</label>
+            <div>
+              <label><input type="radio" name="hmo1" value="yes" [(ngModel)]="hmo1" /> Yes</label>
+              <label><input type="radio" name="hmo1" value="no" [(ngModel)]="hmo1" /> No</label>
+            </div>
+            
+            <div *ngIf="hmo1 === 'yes'">
+              <label>Insurance Provider:</label>
+              <input type="text" class="form-control" placeholder="Enter insurance provider" />
+              <label>HMO Account Number:</label>
+              <input type="text" class="form-control" placeholder="Enter HMO account number" />
+            </div>
+          </div>
+       
+
+        <!-- Emergency Contact 2 -->
+       <!-- Emergency Contact 1 -->
+       <div *ngIf="activeEmergency === 2" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          
+        <input type="text" class="form-control" placeholder="Enter first name" />
+        <input type="text" class="form-control" placeholder="Enter middle name" />
+        <input type="text" class="form-control" placeholder="Enter last name" />
+        <input type="text" class="form-control" placeholder="Suffix (Optional)" />
+        <input type="text" class="form-control" placeholder="Relationship to patient" />
+        <input type="text" class="form-control" placeholder="Enter contact number" />
+
+        <label>Health Insurance or HMO:</label>
+        <div>
+          <label><input type="radio" name="hmo1" value="yes" [(ngModel)]="hmo1" /> Yes</label>
+          <label><input type="radio" name="hmo1" value="no" [(ngModel)]="hmo1" /> No</label>
+        </div>
+        
+      </div>
+        <div *ngIf="hmo1 === 'yes'">
+          <label>Insurance Provider:</label>
+          <input type="text" class="form-control" placeholder="Enter insurance provider" />
+          <label>HMO Account Number:</label>
+          <input type="text" class="form-control" placeholder="Enter HMO account number" />
+          
+          
+        </div>
+        <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <div>
+              <label>Terms and Agreement:</label>
+              <div style="margin-top: 20px; padding: 20px; border: 2px solid #007BFF; border-radius: 8px; background-color: #f9f9f9; font-family: 'Poppins', sans-serif;">
+                <h4 style="color: #0056b3; margin-bottom: 10px;">Dear Parents/Guardian/Student,</h4>
+                <p style="font-size: 15px; line-height: 1.6; color: #333;">
+                  As part of our commitment to ensuring the health and safety of our students and employees, we kindly request your assistance in completing the Medical Information Form enclosed with this letter.
+                </p>
+                <p style="font-size: 15px; line-height: 1.6; color: #333;">
+                  The form aims to gather medical details about you/your child, enabling us to better support your/their well-being in school and in various activities including field trips, sports, and other school-related events. It covers information such as existing medical conditions, allergies, medications, and emergency contact details.<strong> Rest assured that all information provided will be treated with the utmost confidentiality and will only be accessible to authorized personnel.</strong>
+                </p>
+                <p style="font-size: 15px; line-height: 1.6; color: #333;">
+                  Your prompt completion of this form is crucial in helping us provide the best care for you/your child. Kindly return the completed form to us at your earliest convenience.
+                </p>
+                <p style="font-size: 15px; line-height: 1.6; color: #333;">
+                  Thank you for your cooperation in this matter.
+                </p>
+                <p style="font-size: 15px; line-height: 1.6; color: #333; margin-top: 20px;">
+                  Warm regards,
+                </p>
+                <p style="font-size: 15px; line-height: 1.6; color: #333; font-weight: bold;">
+                  CAMILO B. SANTOS, RMT. MD. FPASMAP <br />
+                  Head, Medical and Dental Health Services
+                </p>
+              
+                <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              
+                <!-- Checkbox Section -->
+                <div style="margin-top: 20px;">
+                  <label style="display: flex; align-items: center; font-size: 15px; color: #333;">
+                    <input type="checkbox" style="margin-right: 10px;" />
+                    <span>
+                        By checking this box, I certify that the information given is true and complete to the best of my knowledge. <span style="color: #0056b3; font-weight: bold;">signature</span>.
+                    </span>
+                  </label>
+                </div>
+              </div>
+            </div>    
+        </div>
+      </div>
+    
+
+
+    <!-- Medical History Section -->
+    <div *ngIf="activeSection === 'medicalHistory'">
+      <h3>Basic Information</h3>
+
+      <form>
+        <!-- Basic Information Section -->
+        <div style="margin-bottom: 15px; display: flex; gap: 15px;">
+            <div style="flex: 1;">
+                <label for="height" style="font-size: 15px; color: #333;">Height (cm):</label>
+                <input type="number" id="height" name="height" style="width: 100%; padding: 8px; margin-top: 5px;" placeholder="Enter height in cm" required>
+            </div>
+            <div style="flex: 1;">
+                <label for="weight" style="font-size: 15px; color: #333;">Weight (kg):</label>
+                <input type="number" id="weight" name="weight" style="width: 100%; padding: 8px; margin-top: 5px;" placeholder="Enter weight in kg" required>
+            </div>
+            <div style="flex: 1;">
+                <label for="last-day-menstruation" style="font-size: 15px; color: #333;">Last Day of Menstruation:</label>
+                <input type="date" id="last-day-menstruation" name="last-day-menstruation" style="width: 100%; padding: 8px; margin-top: 5px;" required>
+            </div>
+        </div>
+        <h3>Family History</h3>
+        <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" /> 
+        <div class="family-history-container">
+            <!-- Left Column -->
+            <div class="family-history-column">
+              <div class="family-history-item">
+                <span class="item-label">A. Arthritis (Rheumatism)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="arthritis" [(ngModel)]="familyHistory.arthritis" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="arthritis" [(ngModel)]="familyHistory.arthritis" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">B. Asthma (Bronchial & Skin)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="asthma" [(ngModel)]="familyHistory.asthma" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="asthma" [(ngModel)]="familyHistory.asthma" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">C. Bleeding Tendencies</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="bleedingTendencies" [(ngModel)]="familyHistory.bleedingTendencies" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="bleedingTendencies" [(ngModel)]="familyHistory.bleedingTendencies" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">D. Cancer or Malignancies</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="cancer" [(ngModel)]="familyHistory.cancer" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="cancer" [(ngModel)]="familyHistory.cancer" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">E. Cerebrovascular Accidents (Aneurysm, Stroke, etc.)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="cerebrovascular" [(ngModel)]="familyHistory.cerebrovascular" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="cerebrovascular" [(ngModel)]="familyHistory.cerebrovascular" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">F. Digestive Problem</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="digestiveProblem" [(ngModel)]="familyHistory.digestiveProblem" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="digestiveProblem" [(ngModel)]="familyHistory.digestiveProblem" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">G. Drug Allergies or Reactions</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="drugAllergies" [(ngModel)]="familyHistory.drugAllergies" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="drugAllergies" [(ngModel)]="familyHistory.drugAllergies" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+            </div>
+          
+            <!-- Vertical Divider -->
+            <div class="vertical-divider"></div>
+          
+            <!-- Right Column -->
+            <div class="family-history-column">
+              <div class="family-history-item">
+                <span class="item-label">H. Epilepsy/Seizure Disorder</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="epilepsy" [(ngModel)]="familyHistory.epilepsy" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="epilepsy" [(ngModel)]="familyHistory.epilepsy" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">I. Gastrointestinal Disorder (Ulcers, GERD, etc.)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="gastrointestinal" [(ngModel)]="familyHistory.gastrointestinal" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="gastrointestinal" [(ngModel)]="familyHistory.gastrointestinal" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">J. Heart Disease (Congenital, Heart Attack, etc.)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="heartDisease" [(ngModel)]="familyHistory.heartDisease" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="heartDisease" [(ngModel)]="familyHistory.heartDisease" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">K. Hormonal Disorder (Adrenal, Diabetes, Thyroid, etc.)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="hormonalDisorder" [(ngModel)]="familyHistory.hormonalDisorder" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="hormonalDisorder" [(ngModel)]="familyHistory.hormonalDisorder" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">L. Hypertension (High Blood Pressure)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="hypertension" [(ngModel)]="familyHistory.hypertension" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="hypertension" [(ngModel)]="familyHistory.hypertension" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">M. Mental & Psychiatric Illnesses</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="mentalIllness" [(ngModel)]="familyHistory.mentalIllness" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="mentalIllness" [(ngModel)]="familyHistory.mentalIllness" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+              <div class="family-history-item">
+                <span class="item-label">N. Pulmonary Tuberculosis (PTB)</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="ptb" [(ngModel)]="familyHistory.ptb" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="ptb" [(ngModel)]="familyHistory.ptb" [value]="false" /> No
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" /> 
+          <h3>Patient's Clinical Data</h3>
+          <h6>DEFORMITIES</h6>
+          <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" /> 
+          <div class="deformities-container">
+            <!-- Left Column -->
+            <div class="deformities-column">
+              <!-- Congenital Deformities -->
+              <div class="deformities-item">
+                <span class="item-label">1. Congenital Deformities</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="congenitalDeformities" [(ngModel)]="deformitiesHistory.congenitalDeformities" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="congenitalDeformities" [(ngModel)]="deformitiesHistory.congenitalDeformities" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="congenitalDeformities" [(ngModel)]="deformitiesHistory.congenitalDeformities" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.congenitalDeformities !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+          
+              <!-- Heart, Vision, & Other Organs -->
+              <div class="deformities-item">
+                <span class="item-label">Heart, Vision, & Other Organs</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="heartVisionOther" [(ngModel)]="deformitiesHistory.heartVisionOther" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="heartVisionOther" [(ngModel)]="deformitiesHistory.heartVisionOther" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="heartVisionOther" [(ngModel)]="deformitiesHistory.heartVisionOther" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.heartVisionOther !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+          
+              <!-- Physical Deformities -->
+              <div class="deformities-item">
+                <span class="item-label">Physical Deformities</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="physicalDeformities" [(ngModel)]="deformitiesHistory.physicalDeformities" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="physicalDeformities" [(ngModel)]="deformitiesHistory.physicalDeformities" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="physicalDeformities" [(ngModel)]="deformitiesHistory.physicalDeformities" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.physicalDeformities !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+
+
+              <div class="deformities-item">
+            
+                <span class="item-label"><strong>a. Skeletal</strong> </span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="skeletal" [(ngModel)]="deformitiesHistory.skeletal" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="skeletal" [(ngModel)]="deformitiesHistory.skeletal" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="skeletal" [(ngModel)]="deformitiesHistory.skeletal" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.skeletal !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+             
+
+
+              <div class="deformities-item">
+            
+                <span class="item-label">Upper Extremities</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="upperExtremities" [(ngModel)]="deformitiesHistory.upperExtremities" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="upperExtremities" [(ngModel)]="deformitiesHistory.upperExtremities" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="upperExtremities" [(ngModel)]="deformitiesHistory.upperExtremities" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.upperExtremities !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+              
+          
+              <div class="deformities-item">
+                <span class="item-label">Lower Extremities</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="lowerExtremities" [(ngModel)]="deformitiesHistory.lowerExtremities" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="lowerExtremities" [(ngModel)]="deformitiesHistory.lowerExtremities" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="lowerExtremities" [(ngModel)]="deformitiesHistory.lowerExtremities" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.lowerExtremities !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+           
+
+            <div class="deformities-item">
+                <span class="item-label">b. Abdomen, Hernia, Inguinal, & Umbilical</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="abdomenHernia" [(ngModel)]="deformitiesHistory.abdomenHernia" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="abdomenHernia" [(ngModel)]="deformitiesHistory.abdomenHernia" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="abdomenHernia" [(ngModel)]="deformitiesHistory.abdomenHernia" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.abdomenHernia !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+            </div>
+      
+
+
+            <!-- Right Column -->
+            <div class="deformities-column">
+              <!-- Acquired Deformities -->
+              <div class="deformities-item">
+                <span class="item-label">2. Acquired Deformities</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="acquiredDeformities" [(ngModel)]="deformitiesHistory.acquiredDeformities" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="acquiredDeformities" [(ngModel)]="deformitiesHistory.acquiredDeformities" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="acquiredDeformities" [(ngModel)]="deformitiesHistory.acquiredDeformities" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.acquiredDeformities !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+          
+              <!-- Sickness due to Polio -->
+              <div class="deformities-item">
+                <span class="item-label">Sickness due to Polio, etc.</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="sicknessPolio" [(ngModel)]="deformitiesHistory.sicknessPolio" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="sicknessPolio" [(ngModel)]="deformitiesHistory.sicknessPolio" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="sicknessPolio" [(ngModel)]="deformitiesHistory.sicknessPolio" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.sicknessPolio !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+          
+              <!-- Accidents -->
+              <div class="deformities-item">
+                <span class="item-label"><strong>Accident</strong></span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="accidents" [(ngModel)]="deformitiesHistory.accidents" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="accidents" [(ngModel)]="deformitiesHistory.accidents" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="accidents" [(ngModel)]="deformitiesHistory.accidents" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.accidents !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+          
+              <div class="deformities-item">
+     
+                <span class="item-label">a. Car Accident</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="carAccident" [(ngModel)]="deformitiesHistory.carAccident" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="carAccident" [(ngModel)]="deformitiesHistory.carAccident" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="carAccident" [(ngModel)]="deformitiesHistory.carAccident" [value]="null" /> N/A
+                  </label>
+                </div>
+            
+              </div>
+          
+              <div class="deformities-item">
+            
+                <span class="item-label">b. Motorcycle Accident</span>
+                <div class="radio-group">
+                  <label>
+                    <input type="radio" name="motorcycleAccident" [(ngModel)]="deformitiesHistory.motorcycleAccident" [value]="true" /> Yes
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="motorcycleAccident" [(ngModel)]="deformitiesHistory.motorcycleAccident" [value]="false" /> No
+                  </label>
+                  <span class="radio-line"></span>
+                  <label>
+                    <input type="radio" name="motorcycleAccident" [(ngModel)]="deformitiesHistory.motorcycleAccident" [value]="null" /> N/A
+                  </label>
+                </div>
+                <hr *ngIf="deformitiesHistory.motorcycleAccident !== null" style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" />
+              </div>
+           
+          </div>
+        </div>
+
+
+        <hr style="border: none; border-top: 1px dashed #0f0f0f; margin: 20px 0;" /> 
+          <h3>CHILDHOOD, ADOLESCENT, ADULT ILLNESSES</h3>
+          
+          
+      
+        </form>
+
+
+
+
+    
+    </div>
+
+
+    <!-- Assessment Status Section -->
+    <div *ngIf="activeSection === 'assessmentStatus'">
+      <h3>Assessment Status</h3>
+      <p>Details about the assessment status go here.</p>
+    </div>
+</div>
+  </div>
+  

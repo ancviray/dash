@@ -21,6 +21,8 @@ import { HeaderComponent } from './header/header.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { DataReportComponent } from './dashboard/data-report/data-report.component';
+import { MedicalFormComponent } from './medical-form/medical-form.component';
+import { MedicalCheckupComponent } from './medical-checkup/medical-checkup.component';
 
 
 
@@ -41,6 +43,8 @@ import { DataReportComponent } from './dashboard/data-report/data-report.compone
     DashboardComponent,
     HeaderComponent,
     DataReportComponent,
+    MedicalFormComponent,
+    MedicalCheckupComponent,
 
    
   ],
